@@ -22,6 +22,7 @@ public class ReqresTestsAPI {
                         .when()
                         .get("https://reqres.in/api/users?page=2")
                         .then()
+                        .statusCode(200)
                         .extract().response().asString();
         System.out.println("Response: " + response);
     }
@@ -68,6 +69,7 @@ public class ReqresTestsAPI {
                .get("https://reqres.in/api/users/2")
                .then()
                .statusCode(200)
+                .body("id", is(2))
                .extract().response().asString();
 
         System.out.println("Response: " + response);
